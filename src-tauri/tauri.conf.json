@@ -2,11 +2,11 @@
   "build": {
     "beforeDevCommand": "npm run dev:fe",
     "beforeBuildCommand": "npm run build:fe",
-    "devPath": "http://localhost:1420",
+    "devPath": "http://localhost:1421",
     "distDir": "../dist"
   },
   "package": {
-    "productName": "ai-app",
+    "productName": "chat_app",
     "version": "1.0.0"
   },
   "tauri": {
@@ -28,7 +28,7 @@
         "removeFile": true,
         "removeDir": true,
         "scope": [
-          "$HOME/.chatgpt/**",
+          "$HOME/.chat_app/**",
           "$DOWNLOAD/**"
         ]
       },
@@ -50,7 +50,7 @@
     },
     "windows": [
       {
-        "title": "ai-app",
+        "title": "chat_app",
         "width": 1024,
         "height": 768
       }
@@ -75,8 +75,8 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.lencx.chatgpt",
-      "longDescription": "ChatGPT Desktop Application",
+      "identifier": "com.nqyuist.chat.app",
+      "longDescription": "ChatApp Desktop Application",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -84,7 +84,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "shortDescription": "ChatGPT",
+      "shortDescription": "ChatApp",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,

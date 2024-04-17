@@ -69,7 +69,7 @@ export default function Settings() {
 
     return (
         <div>
-            {/* <FilePath paths={APP_CONF_JSON} /> */}
+            <FilePath paths={APP_CONF_JSON} />
             <Form
                 form={form}
                 style={{ maxWidth: 500 }}
@@ -84,6 +84,7 @@ export default function Settings() {
                         { label: 'General', key: 'general', children: <General /> },
                         { label: 'Main Window', key: 'main_window', children: <MainWindow /> },
                         { label: 'SystemTray Window', key: 'tray_window', children: <TrayWindow /> },
+                        {label: 'Dashboard', key:'dashboard',children:<a href='/dashbard'>Dashboard</a>},
                     ]}
                 />
 

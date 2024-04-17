@@ -13,6 +13,11 @@ import type { MenuProps } from 'antd';
 
 import Settings from '@/views/settings';
 import About from '@/views/about';
+import Scripts from '@/views/scripts';
+import ScriptsEditor from '@/views/scripts/Editor';
+import Notes from '@/views/notes';
+import Markdown from '@/views/markdown';
+import Dashboard from './views/dashboard';
 
 export type ChatRouteMetaObject = {
     label: string;
@@ -37,6 +42,32 @@ export const routes: Array<ChatRouteObject> = [
         },
     },
     {
+        path: '/notes',
+        element: <Notes />,
+        meta: {
+            label: 'Notes',
+            icon: <FormOutlined />,
+        },
+    },
+    {
+        path: '/md/:id',
+        element: <Markdown />,
+        hideMenu: true,
+    },
+    {
+        path: '/scripts',
+        element: <Scripts />,
+        meta: {
+            label: 'Scripts',
+            icon: <CodeOutlined />,
+        },
+    },
+    {
+        path: '/scripts/:id',
+        element: <ScriptsEditor />,
+        hideMenu: true,
+    },
+    {
         path: '/about',
         element: <About />,
         meta: {
@@ -46,7 +77,7 @@ export const routes: Array<ChatRouteObject> = [
     },
     {
         path: '/',
-        element: <About />,
+        element: <Settings />,
     },
 ];
 

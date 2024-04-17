@@ -86,7 +86,7 @@ export default function ChatLayout() {
                             </Tag>
                         </div>
 
-                        {/* <Menu
+                        <Menu
                             selectedKeys={[menuKey]}
                             mode="inline"
                             theme={appInfo.appTheme === 'dark' ? 'dark' : 'light'}
@@ -94,7 +94,7 @@ export default function ChatLayout() {
                             items={menuItems}
                             // defaultOpenKeys={['/prompts']}
                             onClick={(i) => go(i.key)}
-                        /> */}
+                        />
                     </Sider>
                     <Layout
                         className="chat-layout"
