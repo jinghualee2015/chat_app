@@ -35,3 +35,35 @@ export default function useChatPrompt(key: string, file = CHAT_PROMPT_CMD_JSON) 
 
     return { promptJson, promptSet, promptUpdate, promptData: promptJson?.[key] || [] };
 }
+
+export function useCachePrompt(file = '') {
+    const [promptCacheJson, setPromptCacheJson] = useState<Record<string, any>[]>([]);
+
+    useEffect(() => {
+        if (!file) return;
+        (async () => {
+            const data = await readJSON(file, { isRoot: true, isList: true });
+            setPromptCacheJson(data);
+        })();
+    }, [file]);
+
+    const promptCacheSet = async (data: Record<string, any>[], newFile = '') => {
+        await writeJSON(newFile ? newFile : file, data, { isRoot: true });
+        setPromptCacheJson(data);
+        await promptCacheCmd();
+    };
+
+    const promptCacheCmd = async () => {
+        // Generate the `chat.prompt.cmd.json` file and refresh the page for the slash command to take effect.
+        const list = await invoke('cmd_list');
+        await writeJSON(CHAT_PROMPT_CMD_JSON, {
+            name: 'ChatGPT CMD',
+            last_updated: Date.now(),
+            data: list,
+        });
+        await invoke('window_reload', { label: 'core' });
+        await invoke('window_reload', { label: 'tray' });
+    };
+
+    return { promptCacheJson, promptCacheSet, promptCacheCmd };
+}

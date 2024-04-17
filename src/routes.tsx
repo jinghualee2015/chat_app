@@ -17,7 +17,9 @@ import Scripts from '@/views/scripts';
 import ScriptsEditor from '@/views/scripts/Editor';
 import Notes from '@/views/notes';
 import Markdown from '@/views/markdown';
-import Dashboard from './views/dashboard';
+import Dashboard from '@/views/dashboard';
+import SyncRecord from '@/views/prompts/SyncRecord';
+
 
 export type ChatRouteMetaObject = {
     label: string;
@@ -53,6 +55,24 @@ export const routes: Array<ChatRouteObject> = [
         path: '/md/:id',
         element: <Markdown />,
         hideMenu: true,
+    },
+    {
+        path: '/prompts',
+        meta: {
+            label: 'Prompts',
+            icon: <BulbOutlined />
+        },
+        children: [
+            {
+                // meta:{
+                //     label: 'SyncRecord',
+                //     icon: <BulbOutlined />,
+                // },
+                path: 'sync-custom/:id',
+                element: <SyncRecord />,
+                hideMenu: true,
+            }
+        ]
     },
     {
         path: '/scripts',

@@ -37,7 +37,8 @@ export default function Scripts() {
                 };
             }
         } catch (error) {
-            console.error(error);
+            // console.error(error);
+            message.error(`The init occur error ${error}`);
         }
     };
 
