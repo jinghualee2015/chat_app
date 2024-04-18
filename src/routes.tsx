@@ -19,6 +19,9 @@ import Notes from '@/views/notes';
 import Markdown from '@/views/markdown';
 import Dashboard from '@/views/dashboard';
 import SyncRecord from '@/views/prompts/SyncRecord';
+import SyncCustom from '@/views/prompts/SyncCustom';
+import UserCustom from '@/views/prompts/UserCustom';
+import SyncPrompts from '@/views/prompts/SyncPrompts';
 
 
 export type ChatRouteMetaObject = {
@@ -64,14 +67,34 @@ export const routes: Array<ChatRouteObject> = [
         },
         children: [
             {
-                // meta:{
-                //     label: 'SyncRecord',
-                //     icon: <BulbOutlined />,
-                // },
+                path: 'user-custom',
+                element: <UserCustom />,
+                meta: {
+                    label: 'User Custom',
+                    icon: <UserOutlined />,
+                },
+            },
+            {
+                path: 'sync-prompts',
+                element: <SyncPrompts />,
+                meta: {
+                    label: 'Sync Prompts',
+                    icon: <SyncOutlined />,
+                },
+            },
+            {
+                path: 'sync-custom',
+                element: <SyncCustom />,
+                meta: {
+                    label: 'Sync Custom',
+                    icon: <FileSyncOutlined />,
+                },
+            },
+            {
                 path: 'sync-custom/:id',
                 element: <SyncRecord />,
                 hideMenu: true,
-            }
+            },
         ]
     },
     {
