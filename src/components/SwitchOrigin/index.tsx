@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { Form, Select, Tag, Tooltip, Switch } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import useJson from '@/hooks/useJson';
-import { DISABLE_AUTO_COMPLETE, CHAT_AWSOME_JSON } from '@/utils';
+import { DISABLE_AUTO_COMPLETE, CHAT_AWESOME_JSON } from '@/utils';
 
 interface SwitchOriginProps {
     name: string;
 }
 
 const SwitchOrigin: FC<SwitchOriginProps> = ({ name }) => {
-    const { json: list = [] } = useJson<any[]>(CHAT_AWSOME_JSON);
+    const { json: list = [] } = useJson<any[]>(CHAT_AWESOME_JSON);
     const form = Form.useFormInstance();
 
     const labelName = `(${name === 'main' ? 'Main' : 'SystemTray'})`;

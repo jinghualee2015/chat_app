@@ -4,7 +4,7 @@ import Layout from '@/layout'
 import './main.scss'
 import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Suspense fallback={null}>
       <BrowserRouter>
@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </BrowserRouter>
     </Suspense>
   </StrictMode>,
-)
+);

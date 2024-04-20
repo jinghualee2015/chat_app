@@ -7,34 +7,32 @@ import { invoke } from '@tauri-apps/api';
 
 import useInit from '@/hooks/useInit';
 import Routes, { menuItems } from '@/routes';
-import './index.scss'
+import './index.scss';
 
 const { Content, Footer, Sider } = Layout;
 
 export default function ChatLayout() {
     const [collapsed, setCollapsed] = useState(false);
-    const [isDashboard, setDashboard] = useState<any>(false);
+    const [isDashboard, setDashboard] = useState<any>(null);
     const [appInfo, setAppInfo] = useState<Record<string, any>>({});
     const location = useLocation();
     const [menuKey, setMenuKey] = useState(location.pathname);
     const go = useNavigate();
 
     useEffect(() => {
-        console.log("localtion={}", location);
         if (location.search === '?type=control') {
-            go("/settings");
+            go('/settings');
         }
         if (location.search === '?type=scripts') {
-            go("/scripts");
+            go('/scripts');
         }
         setMenuKey(location.pathname);
         setDashboard(location.pathname === '/');
-
     }, [location.pathname]);
 
     useInit(async () => {
         setAppInfo({
-            appInfo: await getName(),
+            appName: await getName(),
             appVersion: await getVersion(),
             appTheme: await invoke('get_theme'),
         });
@@ -46,15 +44,13 @@ export default function ChatLayout() {
 
     const isDark = appInfo.appTheme === 'dark';
 
-    if (isDashboard === null) {
-        return null;
-    }
+    if (isDashboard === null) return null;
 
     return (
         <ConfigProvider theme={{ algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
-            {isDashboard ? (
+            {/* {isDashboard ? (
                 <Routes />
-            ) : (
+            ) : ( */}
                 <Layout style={{ minHeight: '100vh' }} hasSider>
                     <Sider
                         theme={isDark ? 'dark' : 'light'}
@@ -116,7 +112,7 @@ export default function ChatLayout() {
                         </Footer>
                     </Layout>
                 </Layout>
-            )}
+            {/* )} */}
         </ConfigProvider>
     )
 

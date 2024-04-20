@@ -48,13 +48,6 @@
         "relaunchDangerousAllowSymlinkMacos": true
       }
     },
-    "windows": [
-      {
-        "title": "chat_app",
-        "width": 1024,
-        "height": 768
-      }
-    ],
     "systemTray": {
       "iconPath": "icons/tray-icon.png",
       "iconAsTemplate": true,
@@ -139,9 +132,9 @@
       "active": true,
       "dialog": false,
       "endpoints": [
-        "https://lencx.github.io/ChatGPT/install.json"
+        "https://github.io/jinghualee2015/chat_app/install.json"
       ],
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEIxMjY4OUI5MTVFNjBEMDUKUldRRkRlWVZ1WWttc1NGWEE0RFNSb0RqdnhsekRJZTkwK2hVLzhBZTZnaHExSEZ1ZEdzWkpXTHkK"
+      "pubkey": ""
     }
   }
 }
